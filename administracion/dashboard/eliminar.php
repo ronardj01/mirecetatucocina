@@ -19,6 +19,7 @@
 session_start();
 require_once("../includes/functions.php");
 secure();
+$active_eliminar = true;
 include_once("../includes/header.php");
 ?>
   <h1>Eliminar</h1>

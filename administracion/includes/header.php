@@ -10,16 +10,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item px-5 fs-2">
-              <a class="nav-link" aria-current="page" href="dashboard.php">Dashboard</a>
+              <a class="nav-link <?php if($active_home) echo 'active'?>" aria-current="page" href="dashboard.php">Dashboard</a>
             </li>
             <li class="nav-item px-5 fs-2">
-              <a class="nav-link active" href="crear.php">Crear</a>
+              <a class="nav-link <?php if($active_crear) echo 'active'?>" href="crear.php">Crear</a>
             </li>
             <li class="nav-item px-5 fs-2">
-              <a class="nav-link" href="editar.php">Editar</a>
+              <a class="nav-link <?php if($active_editar) echo 'active'?>" href="editar.php">Editar</a>
             </li>
             <li class="nav-item px-5 fs-2">
-              <a class="nav-link" href="eliminar.php">Eliminar</a>
+              <a class="nav-link <?php if($active_eliminar) echo 'active'?>" href="eliminar.php">Eliminar</a>
             </li>
             <li class="nav-item px-5 fs-2 ms-5">
               <a class="nav-link" href="../logout.php">Logout</a>

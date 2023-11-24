@@ -15,12 +15,13 @@
 </head>
 
 <body>
-<?php 
-session_start();
-require_once("../includes/functions.php");
-secure();
-include_once("../includes/header.php");
-?>
+  <?php
+  session_start();
+  require_once("../includes/functions.php");
+  secure();
+  $active_editar = true;
+  include_once("../includes/header.php");
+  ?>
   <h1>Editar</h1>
 </body>
 
