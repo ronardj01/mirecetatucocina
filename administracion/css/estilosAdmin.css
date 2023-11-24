@@ -1,0 +1,28 @@
+:root {
+  --primary-color: #ff670f;
+  --secondary-color: #9e7ac6;
+  --base-color: #46a0de;
+  --constrat-color: rgba(255, 103, 15, 0.8);
+  --texto-ligero: 'Noto Sans', sans-serif;
+  --texto-encabezados: 'Noto Serif', serif;
+}
+
+/* Estilos del login */
+.btn {
+  background-color: var(--primary-color);
+  border: none;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+}
+
+a:hover {
+  color: var(--primary-color) !important;
+}
+
+@media(min-width: 992px) {
+  #navbarNav li:last-child {
+    margin-left: 20rem !important;
+  }
+}
