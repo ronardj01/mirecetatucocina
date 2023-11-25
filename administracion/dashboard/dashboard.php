@@ -18,41 +18,73 @@
 <body>
   <?php
   session_start();
+  /* Traer las funciones */
   require_once("../includes/functions.php");
   secure();
+
+  /* Crear conexion con la base de datos */
+  require_once("../../connexio/connexio.php");
+
+  /* Cargar el titulo */
   $active_home = true;
   include_once("../includes/header.php");
   ?>
 
   <main class="container mt-5">
-    <?php include_once("../includes/titulo.php") ?>
+    <?php
+    /* Cargar el titulo */
+    include_once("../includes/titulo.php")
+      ?>
     <div class="container d-flex justify-content-center mt-3">
       <h2>Administración de Recetas</h2>
     </div>
-    <div class="table-responsive">
-      <table class="table table-hover mt-3">
-          <thead>
-            <tr class="table-active">
-              <th scope="col" class="fs-4">Receta</th>
-              <th scope="col" class="fs-4">Categorias</th>
-              <th scope="col" class="fs-4">Subcategorias</th>
-              <th scope="col" class="fs-4">IDreceta</th>
-              <th scope="col" class="fs-4 text-center">Editar</th>
-              <th scope="col" class="fs-4 text-center">Eliminar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="fs-5">Rollos de pescado y caviar</td>
-              <td class="fs-6">Pescados</td>
-              <td class="fs-6">Pescados</td>
-              <td class="fs-5">1</td>
-              <td class="fs-5 text-center"><a href="editar.php"><i class="bi bi-pencil"></i></a></td>
-              <td class="text-center"><a href="eliminar.php"><i class="bi bi-trash"></i></a></td>
-            </tr>
-          </tbody>
-      </table>
-    </div>
+    <?php
+    if ($stm = $conexion->prepare('SELECT * FROM recetas ORDER BY fechapublicacion DESC')) {
+      $stm->execute();
+
+      $result = $stm->get_result();
+
+      if ($result->num_rows > 0) {
+        ?>
+        <div class="table-responsive">
+          <table class="table table-hover mt-3">
+            <thead>
+              <tr class="table-active">
+                <th scope="col" class="fs-4">Fecha</th>
+                <th scope="col" class="fs-4">Receta</th>
+                <th scope="col" class="fs-4">IDreceta</th>
+                <th scope="col" class="fs-4 text-center">Editar</th>
+                <th scope="col" class="fs-4 text-center">Eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <?php while ($receta = $result->fetch_assoc()) { ?>
+                  <td class="fs-5">
+                    <?php echo $receta['fechapublicacion'] ?>
+                  </td>
+                  <td class="fs-5">
+                    <?php echo $receta['nombre'] ?>
+                  </td>
+                  <td class="fs-5">
+                    <?php echo $receta['idreceta'] ?>
+                  </td>
+                  <td class="fs-5 text-center"><a href="editar.php"><i class="bi bi-pencil"></i></a></td>
+                  <td class="text-center"><a href="eliminar.php"><i class="bi bi-trash"></i></a></td>
+                </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
+      <?php } else {
+        echo 'No se encontraron recetas';
+      }
+      $stm->close();
+      ?>
+
+    <?php } else {
+      echo 'No es posible preparar el statement';
+    } ?>
   </main>
 </body>
 
