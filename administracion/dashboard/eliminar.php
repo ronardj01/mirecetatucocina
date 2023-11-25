@@ -22,7 +22,10 @@ secure();
 $active_eliminar = true;
 include_once("../includes/header.php");
 ?>
-  <h1>Eliminar</h1>
+  
+  <main class="container mt-5">
+  <?php include_once("../includes/titulo.php") ?>
+</main>
 </body>
 
 </html>

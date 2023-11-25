@@ -22,6 +22,10 @@ secure();
 $active_crear = true;
 include_once("../includes/header.php");
 ?>
+
+<main class="container mt-5">
+  <?php include_once("../includes/titulo.php") ?>
+</main>
 </body>
 
 </html>
