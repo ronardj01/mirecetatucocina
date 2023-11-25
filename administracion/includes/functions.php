@@ -1,7 +1,7 @@
 <?php 
   function secure() {
     if(!isset($_SESSION['password'])){
-      echo '<h1> Debes estar logeado para ver esta página</h1>';
+      echo '<h1 class="display-6">Debes estar logeado para ver esta página</h1>';
       die();
     }
   }

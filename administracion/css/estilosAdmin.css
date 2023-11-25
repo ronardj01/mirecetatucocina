@@ -7,7 +7,7 @@
   --texto-encabezados: 'Noto Serif', serif;
 }
 
-/* Estilos del login */
+/* Estilos generales */
 .btn {
   background-color: var(--primary-color);
   border: none;
@@ -21,8 +21,18 @@ a:hover {
   color: var(--primary-color) !important;
 }
 
+/* Estilos del login */
 @media(min-width: 992px) {
   #navbarNav li:last-child {
     margin-left: 20rem !important;
   }
+}
+
+/* Estilos de las tablas */
+.bi {
+  font-size: 20px;
+} 
+
+.bi:hover {
+  font-size: 24px;
 }
