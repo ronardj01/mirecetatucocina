@@ -21,7 +21,8 @@ if (isset($_POST['username'])) {
       header('Location:dashboard/dashboard.php');
       die();
     } else {
-      echo 'El usuario o la contraseña no es valida';
+      set_message('El usuario o la contraseña no es valida');
+      header('Location: index.php');
     }
     $stm->close();
   } else {

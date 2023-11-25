@@ -33,6 +33,13 @@
           </div>
           <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
         </form>
+        <div class="mt-3">
+          <?php
+          session_start();
+          include_once("includes/functions.php");
+          get_message();
+          ?>
+        </div>
       </div>
     </div>
   </div>
