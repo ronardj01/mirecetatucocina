@@ -22,7 +22,7 @@
         <div class="text-center">
           <h1>Iniciar Cuenta</h1>
         </div>
-        <form action="login.php" method="post">
+        <form action="login.php" method="post" autocomplete="off">
           <div class="mb-3">
             <label for="username" class="form-label">Nombre de usuario</label>
             <input type="text" class="form-control fs-5" id="username" name="username" required autocomplete="off">
