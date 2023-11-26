@@ -43,9 +43,11 @@
       $stm->execute();
 
       $result = $stm->get_result();
+      $resultNumber = $result->num_rows;
 
-      if ($result->num_rows > 0) {
+      if ($resultNumber > 0) {
         ?>
+        <h4>Total de recetas: <?php echo $resultNumber ?> </h4>
         <div class="row row-cols-1 row-cols-md-3 g-4 my-3">
           <?php while ($row = $result->fetch_assoc()) { ?>
             <div class="col">
