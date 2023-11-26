@@ -46,21 +46,23 @@
 
       if ($result->num_rows > 0) {
         ?>
-        <div class="card-group my-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4 my-3">
           <?php while ($row = $result->fetch_assoc()) { ?>
-            <div class="card my-5 mx-md-2">
-              <img src="../../img/<?php echo $row['imagen1'] ?>" class="card-img-top" alt="<?php echo $row['nombre'] ?>">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <?php echo $row['nombre'] ?>
-                </h5>
-                <p class="card-text text-center"><b>Fecha</b>:
-                  <?php echo $row['fechapublicacion'] ?>
-                </p>
-              </div>
-              <div class="card-footer d-flex justify-content-between py-3">
-                <a href="editar.php"><i class="bi bi-pencil">Editar</i></a>
-                <a href="eliminar.php"><i class="bi bi-trash text-danger">Eliminar</i></a>
+            <div class="col">
+              <div class="card my-3">
+                <img src="../../img/<?php echo $row['imagen1'] ?>" class="card-img-top" alt="<?php echo $row['nombre'] ?>">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <?php echo $row['nombre'] ?>
+                  </h5>
+                  <p class="card-text text-center"><b>Fecha</b>:
+                    <?php echo $row['fechapublicacion'] ?>
+                  </p>
+                </div>
+                <div class="card-footer d-flex justify-content-between py-3">
+                  <a href="editar.php"><i class="bi bi-pencil">Editar</i></a>
+                  <a href="eliminar.php"><i class="bi bi-trash text-danger">Eliminar</i></a>
+                </div>
               </div>
             </div>
           <?php } ?>
