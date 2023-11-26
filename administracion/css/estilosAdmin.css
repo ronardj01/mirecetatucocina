@@ -28,11 +28,20 @@ a:hover {
   }
 }
 
-/* Estilos de las tablas */
+/* Estios del Dashboard */
 .bi {
   font-size: 20px;
 } 
 
 .bi:hover {
   font-size: 24px;
+}
+
+.card a:hover, .card a {
+  text-decoration: none;
+}
+
+div.card-body {
+  background-color: var(--primary-color);
+  color: white
 }

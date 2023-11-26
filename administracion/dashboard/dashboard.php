@@ -46,36 +46,26 @@
 
       if ($result->num_rows > 0) {
         ?>
-        <div class="table-responsive">
-          <table class="table table-hover mt-3">
-            <thead>
-              <tr class="table-active">
-                <th scope="col" class="fs-4">Fecha</th>
-                <th scope="col" class="fs-4">Receta</th>
-                <th scope="col" class="fs-4">IDreceta</th>
-                <th scope="col" class="fs-4 text-center">Editar</th>
-                <th scope="col" class="fs-4 text-center">Eliminar</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <?php while ($receta = $result->fetch_assoc()) { ?>
-                  <td class="fs-5">
-                    <?php echo $receta['fechapublicacion'] ?>
-                  </td>
-                  <td class="fs-5">
-                    <?php echo $receta['nombre'] ?>
-                  </td>
-                  <td class="fs-5">
-                    <?php echo $receta['idreceta'] ?>
-                  </td>
-                  <td class="fs-5 text-center"><a href="editar.php"><i class="bi bi-pencil"></i></a></td>
-                  <td class="text-center"><a href="eliminar.php"><i class="bi bi-trash"></i></a></td>
-                </tr>
-              <?php } ?>
-            </tbody>
-          </table>
+        <div class="card-group my-4">
+          <?php while ($row = $result->fetch_assoc()) { ?>
+            <div class="card my-5 mx-md-2">
+              <img src="../../img/<?php echo $row['imagen1'] ?>" class="card-img-top" alt="<?php echo $row['nombre'] ?>">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <?php echo $row['nombre'] ?>
+                </h5>
+                <p class="card-text text-center"><b>Fecha</b>:
+                  <?php echo $row['fechapublicacion'] ?>
+                </p>
+              </div>
+              <div class="card-footer d-flex justify-content-between py-3">
+                <a href="editar.php"><i class="bi bi-pencil">Editar</i></a>
+                <a href="eliminar.php"><i class="bi bi-trash text-danger">Eliminar</i></a>
+              </div>
+            </div>
+          <?php } ?>
         </div>
+
       <?php } else {
         echo 'No se encontraron recetas';
       }
