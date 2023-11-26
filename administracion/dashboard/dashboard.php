@@ -60,8 +60,8 @@
                   </p>
                 </div>
                 <div class="card-footer d-flex justify-content-between py-3">
-                  <a href="editar.php"><i class="bi bi-pencil">Editar</i></a>
-                  <a href="eliminar.php"><i class="bi bi-trash text-danger">Eliminar</i></a>
+                  <a href="editar.php?rec=<?php echo $row['idreceta']?>"><i class="bi bi-pencil">Editar</i></a>
+                  <a href="eliminar.php?rec=<?php echo $row['idreceta']?>"><i class="bi bi-trash text-danger">Eliminar</i></a>
                 </div>
               </div>
             </div>
