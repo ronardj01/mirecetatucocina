@@ -40,7 +40,7 @@
     </div>
     <?php
     /* Parametros para paginación */
-    $rectasPorPagina = 1;
+    $rectasPorPagina = 5;
 
     /* Determinar pagina actual para buscar en la url */
     if (isset($_GET['pagina'])) {
