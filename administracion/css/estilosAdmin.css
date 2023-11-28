@@ -8,7 +8,7 @@
 }
 
 /* Estilos generales */
-.btn {
+.btn, .page-item.active a {
   background-color: var(--primary-color);
   border: none;
 }
