@@ -22,7 +22,7 @@
   $active_eliminar = true;
   include_once("../includes/header.php");
   if (isset($_GET['rec']) && isset($_GET['nombre']) && isset($_GET['imagen'])) {
-    $id_receta = $_GET['rec'];
+    $idreceta = $_GET['rec'];
     $nombre = $_GET['nombre'];
     $imagen = $_GET['imagen'];
   }
@@ -46,7 +46,7 @@
       <div class="col col-md-3 col-lg-4">
         <form action="#" method="post" autocomplete="off">
           <div class="mb-3">
-            <label for="nombreReceta" class="form-label">Para confirmar eliminación de la receta debe escribir el nombre tal cual  aparece.</label>
+            <label for="nombreReceta" class="form-label">Para confirmar la eliminación de la receta, debes escribir el nombre exacto. Como aparece aquí [ <?php echo '<b>' .$nombre. '</b>' ?> ]</label>
             <input type="text" class="form-control fs-5" id="nombreReceta" name="nombreReceta" autocomplete="off">
           </div>
           <button type="submit" class="btn btn-danger elminarReceta">Eliminar Receta</button>
