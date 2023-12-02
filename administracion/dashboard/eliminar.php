@@ -31,25 +31,25 @@
   <main class="container mt-5">
     <?php include_once("../includes/titulo.php") ?>
 
-    <div class="row row-cols-1 row-cols-md-5">
+    <div class="row row-cols-1 row-cols-md-3 g-5 justify-content-center align-items-center mt-3">
       <div class='col'>
         <div class="card">
           <img src="../../img/<?php echo $imagen ?>" class="card-img-top" alt="<?php echo $nombre ?>">
         </div>
-        <div class="card-body">
-          <h5 class="card-title text-center pt-4">
+        <div class="card-body elminarReceta">
+          <h3 class="card-title text-center pt-4">
             <?php echo $nombre ?>
-          </h5>
-          <p class="card-text text-center py-2">Estas a punto de elminar esta receta permanentemente</p>
+          </h3>
+          <p class="card-text text-center fs-4">Estas a punto de elminar esta receta permanentemente</p>
         </div>
       </div>
-      <div class="col col-md-5 col-lg-4">
+      <div class="col col-md-3 col-lg-4">
         <form action="#" method="post" autocomplete="off">
           <div class="mb-3">
-            <label for="nombreReceta" class="form-label">Escriba el nombre de la receta</label>
+            <label for="nombreReceta" class="form-label">Para confirmar eliminación de la receta debe escribir el nombre tal cual  aparece.</label>
             <input type="text" class="form-control fs-5" id="nombreReceta" name="nombreReceta" autocomplete="off">
           </div>
-          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+          <button type="submit" class="btn btn-danger elminarReceta">Eliminar Receta</button>
         </form>
       </div>
     </div>

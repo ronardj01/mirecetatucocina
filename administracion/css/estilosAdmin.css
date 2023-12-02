@@ -8,7 +8,7 @@
 }
 
 /* Estilos generales */
-.btn, .page-item.active a {
+.btn:not(.btn.elminarReceta), .page-item.active a {
   background-color: var(--primary-color);
   border: none;
 }
@@ -41,7 +41,12 @@ a:hover {
   text-decoration: none;
 }
 
-div.card-body {
+div.card-body:not(div.elminarReceta) {
   background-color: var(--primary-color);
   color: white
+}
+
+/* Estilos de Eliminar Receta */
+.elminarReceta p {
+  color: red;
 }
