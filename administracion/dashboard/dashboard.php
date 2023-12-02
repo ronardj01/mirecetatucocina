@@ -40,7 +40,7 @@
     </div>
     <?php
     /* Parametros para paginación */
-    $rectasPorPagina = 5;
+    $rectasPorPagina = 10;
 
     /* Determinar pagina actual para buscar en la url */
     if (isset($_GET['pagina'])) {
@@ -88,8 +88,9 @@
                 </div>
                 <div class="card-footer d-flex justify-content-between py-3">
                   <a href="editar.php?rec=<?php echo $row['idreceta'] ?>"><i class="bi bi-pencil">Editar</i></a>
-                  <a href="eliminar.php?rec=<?php echo $row['idreceta'] ?>"><i
-                      class="bi bi-trash text-danger">Eliminar</i></a>
+                  <a href="eliminar.php?rec=<?php
+                  echo $row['idreceta'] . '&nombre=' . urlencode($row['nombre']) . '&imagen=' . urlencode($row['imagen1']);
+                    ?>"><i class="bi bi-trash text-danger">Eliminar</i></a>
                 </div>
               </div>
             </div>
