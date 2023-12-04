@@ -44,13 +44,32 @@
         </div>
       </div>
       <div class="col col-md-3 col-lg-4">
-        <form action="#" method="post" autocomplete="off">
-          <div class="mb-3">
-            <label for="nombreReceta" class="form-label">Para confirmar la eliminación de la receta, debes escribir el nombre exacto. Como aparece aquí [ <?php echo '<b>' .$nombre. '</b>' ?> ]</label>
-            <input type="text" class="form-control fs-5" id="nombreReceta" name="nombreReceta" autocomplete="off">
-          </div>
-          <button type="submit" class="btn btn-danger elminarReceta">Eliminar Receta</button>
-        </form>
+        <?php
+        /* Procesamiento del formulario */
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          if (isset($_POST["nombreReceta"])) {
+            $nombreReceta = $_POST["nombreReceta"];
+            var_dump($nombreReceta);
+            var_dump($idreceta);
+            var_dump($nombre);
+            var_dump($action);
+          } else {
+            echo 'Error al eniar el formulario';
+          }
+        } else { // Solo mostrar formulrio si no se ha enviado
+          $action = htmlspecialchars($_SERVER["PHP_SELF"]) . '?rec=' . urlencode($idreceta) . '&nombre=' . urlencode($nombre) . '&imagen=' . urlencode($imagen);
+          echo <<<FORM
+                <form action=$action method='POST' autocomplete='off'>
+                  <div class='mb-3'>
+                    <label for="nombreReceta" class="form-label">Para confirmar la eliminación de la receta, debes escribir el nombre exacto. Como aparece aquí [ <b>$nombre</b> ]
+                    </label>
+                    <input type="text" class="form-control fs-5" id="nombreReceta" name="nombreReceta" autocomplete="off">
+                  </div>
+                  <button type="submit" class="btn btn-danger elminarReceta">Eliminar Receta</button>
+                </form>
+              FORM;
+        }
+        ?>
       </div>
     </div>
   </main>
