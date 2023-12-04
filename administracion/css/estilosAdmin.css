@@ -47,6 +47,6 @@ div.card-body:not(div.elminarReceta) {
 }
 
 /* Estilos de Eliminar Receta */
-.elminarReceta p {
+ p.elminarReceta {
   color: red;
 }

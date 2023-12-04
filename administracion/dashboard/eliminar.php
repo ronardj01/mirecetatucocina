@@ -40,34 +40,27 @@
           <h3 class="card-title text-center pt-4">
             <?php echo $nombre ?>
           </h3>
-          <p class="card-text text-center fs-4">Estas a punto de elminar esta receta permanentemente</p>
         </div>
       </div>
       <div class="col col-md-3 col-lg-4">
         <?php
         /* Procesamiento del formulario */
+        $action = htmlspecialchars($_SERVER["PHP_SELF"]) . '?rec=' . urlencode($idreceta) . '&nombre=' . urlencode($nombre) . '&imagen=' . urlencode($imagen);
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
           if (isset($_POST["nombreReceta"])) {
             $nombreReceta = $_POST["nombreReceta"];
-            if($nombreReceta === $nombre) {
+            if ($nombreReceta === $nombre) {
               echo 'Corfimación correcta';
+            } else {
+              echo '<p class="elminarReceta">El <b>nombre</b> introducido es <b>incorrecto</b>. Si deseas eliminar la receta introduce el nombre correcto.</p>';
+              echo mostrar_eliminarForm($action, $nombre);
             }
           } else {
-            echo 'Error al eniar el formulario';
+            echo 'Error al enviar el formulario';
           }
         } else { // Solo mostrar formulrio si no se ha enviado
-          $action = htmlspecialchars($_SERVER["PHP_SELF"]) . '?rec=' . urlencode($idreceta) . '&nombre=' . urlencode($nombre) . '&imagen=' . urlencode($imagen);
-          echo <<<FORM
-                <p>Estas a punto de eliminar esta receta permanentemente</p>
-                <form action=$action method='POST' autocomplete='off'>
-                  <div class='mb-3'>
-                    <label for="nombreReceta" class="form-label">Para confirmar la eliminación de la receta, debes escribir el nombre exacto. Como aparece aquí [ <b>$nombre</b> ]
-                    </label>
-                    <input type="text" class="form-control fs-5" id="nombreReceta" name="nombreReceta" autocomplete="off">
-                  </div>
-                  <button type="submit" class="btn btn-danger elminarReceta">Eliminar Receta</button>
-                </form>
-              FORM;
+          echo '<p class="elminarReceta">Estas a punto de eliminar esta receta permanentemente</p>';
+          echo mostrar_eliminarForm($action, $nombre);
         }
         ?>
       </div>
