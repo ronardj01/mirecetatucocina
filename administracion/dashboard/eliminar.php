@@ -59,11 +59,36 @@ require_once("../../connexio/connexio.php");
         </div>
       </div>
     </main>
-  <?php } else {
-    echo '<h1>Aqui poner codigo en caso de que entrar directamente a esta página</h1>';
-  }
-
-  ?>
+  <?php } else { ?>
+    <div class="container mt-5">
+      <form class="row g-3 justify-content-center" method="POST"
+        action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <div class="col-4">
+          <label for="buscarReceta" class="visually-hidden">Buscar Receta</label>
+          <input type="text" class="form-control" id="buscarReceta" name="buscarReceta"
+            placeholder="Introduce el nombre de una receta">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+        </div>
+      </form>
+    </div>
+    <?php
+    if(isset($_POST["buscarReceta"])) {
+      $buscarReceta = $_POST["buscarReceta"];
+      if($stm = $conexion->prepare("SELECT * FROM recetas WHERE nombre = ?")) {
+        $stm->bind_param("s", $buscarReceta);
+        $stm->execute();
+        $result = $stm->get_result();
+        $receta = $result->fetch_assoc();
+        if($result->num_rows > 0) {
+          var_dump($result->num_rows);
+        } else {
+          echo "<h4 class='text-center mt-4'>La receta buscada no existe.</h4>";
+        }
+      }
+    }
+  } ?>
 </body>
 
 </html>
