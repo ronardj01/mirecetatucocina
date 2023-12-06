@@ -59,32 +59,36 @@ require_once("../../connexio/connexio.php");
         </div>
       </div>
     </main>
-  <?php } else { ?>
+  <?php } else { ?> <!-- Formulario que aparece si entran directamente en eliminar.php -->
     <div class="container mt-5">
-      <form class="row g-3 justify-content-center" method="POST"
-        action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <div class="col-4">
+      <form class="row g-5 justify-content-center" method="POST"
+        action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" autocomplete="off">
+        <div class="col-5">
           <label for="buscarReceta" class="visually-hidden">Buscar Receta</label>
-          <input type="text" class="form-control" id="buscarReceta" name="buscarReceta"
+          <input type="text" class="form-control fs-4" id="buscarReceta" name="buscarReceta"
             placeholder="Introduce el nombre de una receta">
         </div>
         <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+          <button type="submit" class="btn btn-primary mb-3 fs-4">Confirm identity</button>
         </div>
       </form>
     </div>
     <?php
     if(isset($_POST["buscarReceta"])) {
       $buscarReceta = $_POST["buscarReceta"];
-      if($stm = $conexion->prepare("SELECT * FROM recetas WHERE nombre = ?")) {
-        $stm->bind_param("s", $buscarReceta);
-        $stm->execute();
-        $result = $stm->get_result();
-        $receta = $result->fetch_assoc();
-        if($result->num_rows > 0) {
-          var_dump($result->num_rows);
-        } else {
-          echo "<h4 class='text-center mt-4'>La receta buscada no existe.</h4>";
+      if(empty($buscarReceta)) {
+        echo "<h4 class='text-center mt-4'>No has introducido ningún nombre de receta.</h4>";
+      } else {
+        if($stm = $conexion->prepare("SELECT * FROM recetas WHERE nombre = ?")) {
+          $stm->bind_param("s", $buscarReceta);
+          $stm->execute();
+          $result = $stm->get_result();
+          $receta = $result->fetch_assoc();
+          if($result->num_rows > 0) {
+            var_dump($receta["nombre"]);
+          } else {
+            echo "<h4 class='text-center mt-4'>La receta buscada no existe.</h4>";
+          }
         }
       }
     }
