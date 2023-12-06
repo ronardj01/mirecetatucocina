@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DASHBOARD | ADMIN</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <link rel="shortcut icon" href="../../img/logo/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="../css/estilosAdmin.css">
-</head>
+<?php
+$active_home = true;
+require_once("../includes/head.php");
+?>
 
 <body>
   <?php
@@ -26,7 +14,7 @@
   require_once("../../connexio/connexio.php");
 
   /* Cargar el titulo */
-  $active_home = true;
+
   include_once("../includes/header.php");
   ?>
 
@@ -90,7 +78,7 @@
                   <a href="editar.php?rec=<?php echo $row['idreceta'] ?>"><i class="bi bi-pencil">Editar</i></a>
                   <a href="eliminar.php?rec=<?php
                   echo $row['idreceta'] . '&nombre=' . urlencode($row['nombre']) . '&imagen=' . urlencode($row['imagen1']);
-                    ?>"><i class="bi bi-trash text-danger">Eliminar</i></a>
+                  ?>"><i class="bi bi-trash text-danger">Eliminar</i></a>
                 </div>
               </div>
             </div>
