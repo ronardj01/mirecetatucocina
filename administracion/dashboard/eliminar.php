@@ -31,7 +31,7 @@ require_once("../../connexio/connexio.php");
         </div>
         <div class="col col-md-3 col-lg-4">
           <?php
-          /* Procesamiento del formulario */
+          /* Procesamiento del formulario entrando desde dashboard.php */
           $action = htmlspecialchars($_SERVER["PHP_SELF"]).'?rec='.urlencode($idreceta).'&nombre='.urlencode($nombre).'&imagen='.urlencode($imagen);
           if($_SERVER["REQUEST_METHOD"] == "POST") {
             if(isset($_POST["nombreReceta"])) {
@@ -61,6 +61,7 @@ require_once("../../connexio/connexio.php");
     </main>
   <?php } else { ?> <!-- Formulario que aparece si entran directamente en eliminar.php -->
     <div class="container mt-5">
+      <?php include_once("../includes/titulo.php"); ?>
       <form class="row g-5 justify-content-center" method="POST"
         action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" autocomplete="off">
         <div class="col-5">
@@ -69,7 +70,7 @@ require_once("../../connexio/connexio.php");
             placeholder="Introduce el nombre de una receta">
         </div>
         <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3 fs-4">Confirm identity</button>
+          <button type="submit" class="btn btn-primary mb-3 fs-4">Buscar Receta</button>
         </div>
       </form>
     </div>
@@ -84,8 +85,10 @@ require_once("../../connexio/connexio.php");
           $stm->execute();
           $result = $stm->get_result();
           $receta = $result->fetch_assoc();
+          $stm->close();
           if($result->num_rows > 0) {
-            var_dump($receta["nombre"]);
+            $goTo = "eliminar.php?rec=".urlencode($receta['idreceta']).'&nombre='.urlencode($receta['nombre']).'&imagen='.urlencode($receta['imagen1']);
+            header('Location: '.$goTo);
           } else {
             echo "<h4 class='text-center mt-4'>La receta buscada no existe.</h4>";
           }
