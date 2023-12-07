@@ -25,13 +25,13 @@
         <form action="login.php" method="post" autocomplete="off">
           <div class="mb-3">
             <label for="username" class="form-label">Nombre de usuario</label>
-            <input type="text" class="form-control fs-5" id="username" name="username" required autocomplete="off">
+            <input type="text" class="form-control fs-4" id="username" name="username" required autocomplete="off">
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control fs-5" id="password" name="password" required autocomplete="off">
+            <input type="password" class="form-control fs-4" id="password" name="password" required autocomplete="off">
           </div>
-          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+          <button type="submit" class="btn btn-primary fs-4">Iniciar Sesión</button>
         </form>
         <div class="mt-3">
           <?php
