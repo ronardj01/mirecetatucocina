@@ -15,7 +15,7 @@ require_once("../includes/head.php");
     <?php include_once("../includes/titulo.php") ?>
     <div class="row justify-content-center mt-3">
       <div class="col-md-5 col-lg-10">
-        <form action="#" method="POST" autocomplete="off" class="justify-content-center border border-5 p-5 mb-5">
+        <form action="procesaCrear.php" method="POST" autocomplete="off" class="justify-content-center border border-5 p-5 mb-5">
           <div class="mb-3">
             <label for="nombre" class="form-label fs-4 fw-bold">Nombre de la Receta</label>
             <input type="text" class="form-control form-control-lg border-4" id="nombre" name="nombre">
