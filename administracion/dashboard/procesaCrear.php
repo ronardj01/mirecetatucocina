@@ -64,6 +64,7 @@ if ($number) {
     $sql_receta->bind_param('sssssssssssss', $nombre, $categoria, $subcategoria, $porciones, $tiempo, $dificultad, $Dcorta, $Dlarga, $video, $imagen1, $imagen2, $imagen3, $preparacion);
     $sql_receta->execute();
     $sql_receta->close();
+    header('Location: introIngredientes.php?rec=' .urlencode($nombre));
   } else {
     echo 'No es posible preparar el statement';
   }
