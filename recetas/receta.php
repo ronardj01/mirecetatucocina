@@ -92,7 +92,8 @@ $row_categorias = mysqli_fetch_assoc($categorias);
         foreach ($pasos as &$paso) {
           echo <<<PASOS
           <div>
-          <h3>Paso $counter</h3>$paso</p>
+          <h3>Paso $counter</h3>
+          $paso
           </div>
 
           PASOS;
