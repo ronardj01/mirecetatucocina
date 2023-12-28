@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST[ "nombre" ])) {
-  $nombre = $_POST[ "nombre" ];
+  $nombre = strtolower($_POST[ "nombre" ]);
 }
 //Categorias
 if (isset($_POST[ "categoria" ])) {
