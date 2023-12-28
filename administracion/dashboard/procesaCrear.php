@@ -3,36 +3,10 @@ if (isset($_POST["nombre"])) {
   $nombre = $_POST["nombre"];
 }
 //Categorias
-if (isset($_POST["carnes"])) {
-  $carnes = $_POST["carnes"];
+if (isset($_POST["categoria"])) {
+  $categoria = $_POST["categoria"];
 }
-if (isset($_POST["pescados"])) {
-  $pescados = $_POST["pescados"];
-}
-if (isset($_POST["arroz"])) {
-  $arroz = $_POST["arroz"];
-}
-if (isset($_POST["ensaladas"])) {
-  $ensaladas = $_POST["ensaladas"];
-}
-if (isset($_POST["sopas"])) {
-  $sopas = $_POST["sopas"];
-}
-if (isset($_POST["salsas"])) {
-  $salsas = $_POST["salsas"];
-}
-if (isset($_POST["postres"])) {
-  $postres = $_POST["postres"];
-}
-if (isset($_POST["panes"])) {
-  $panes = $_POST["panes"];
-}
-if (isset($_POST["aperitivos"])) {
-  $aperitivos = $_POST["aperitivos"];
-}
-if (isset($_POST["bebidas"])) {
-  $bebidas = $_POST["bebidas"];
-}
+
 //subCategorias
 if (isset($_POST["pollo"])) {
   $pollo = $_POST["pollo"];
@@ -101,4 +75,15 @@ if (isset($_POST["imagen3"])) {
 if (isset($_POST["preparacion"])) {
   $preparacion = $_POST["preparacion"];
 }
+
+ /* Crear conexion con la base de datos */
+ require_once("../../connexio/connexio.php");
+
+ if($sql_receta= $conexion->prepare('INSERT INTO recetas (nombre, porciones, tiempo, dificultad, descripcioncorta, descripcion, video, imagen1, imagen2, imagen3, preparacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')) {
+  $sql_receta->bind_param('sssssssssss', $nombre, $porciones, $tiempo, $difilcutad, $Dcorta, $Dlarga, $video, $imagen1, $imagen2, $imagen3, $preparacion);
+  $sql_receta->execute();
+  $sql_receta->close();
+ } else {
+  echo 'No es posible preparar el statement';
+ }
 ?>
