@@ -31,8 +31,8 @@ require_once("../includes/head.php");
     $rectasPorPagina = 10;
 
     /* Determinar pagina actual para buscar en la url */
-    if (isset($_GET['pagina'])) {
-      $pagina = $_GET['pagina'];
+    if (isset($_GET[ 'pagina' ])) {
+      $pagina = $_GET[ 'pagina' ];
     } else {
       $pagina = 1;
     }
@@ -47,7 +47,7 @@ require_once("../includes/head.php");
     $sql_recetas->close();
 
     /* Calcular el numero total de páginas*/
-    $total_paginas = ceil($totalRecetas['total'] / $rectasPorPagina);
+    $total_paginas = ceil($totalRecetas[ 'total' ] / $rectasPorPagina);
 
     if ($stm = $conexion->prepare('SELECT * FROM recetas ORDER BY fechapublicacion DESC LIMIT ?, ?')) {
       $stm->bind_param('ss', $inicio, $rectasPorPagina);
@@ -59,25 +59,29 @@ require_once("../includes/head.php");
       if ($resultNumber > 0) {
         ?>
         <h4>Total de recetas:
-          <?php echo $totalRecetas['total'] ?>
+          <?php echo $totalRecetas[ 'total' ] ?>
         </h4>
         <div class="row row-cols-1 row-cols-md-5 gx-4 gy-5">
           <?php while ($row = $result->fetch_assoc()) { ?>
             <div class="col">
               <div class="card my-2 h-100">
-                <img src="../../img/<?php echo $row['imagen1'] ?>" class="card-img-top" alt="<?php echo $row['nombre'] ?>">
+                <img src="../../img/<?php echo $row[ 'imagen1' ] ?>" class="card-img-top"
+                  alt="<?php echo $row[ 'nombre' ] ?>">
                 <div class="card-body">
                   <h5 class="card-title">
-                    <?php echo $row['nombre'] ?>
+                    <?php echo $row[ 'nombre' ] ?>
                   </h5>
+                  <p class="card-text text-center"><b>Publicada</b>:
+                    <?php echo $row[ 'publicar' ] > 0 ? "Si" : "no" ?>
+                  </p>
                   <p class="card-text text-center"><b>Fecha</b>:
-                    <?php echo $row['fechapublicacion'] ?>
+                    <?php echo $row[ 'fechapublicacion' ] ?>
                   </p>
                 </div>
                 <div class="card-footer d-flex justify-content-between py-3">
-                  <a href="editar.php?rec=<?php echo $row['idreceta'] ?>"><i class="bi bi-pencil">Editar</i></a>
+                  <a href="editar.php?rec=<?php echo $row[ 'idreceta' ] ?>"><i class="bi bi-pencil">Editar</i></a>
                   <a href="eliminar.php?rec=<?php
-                  echo $row['idreceta'] . '&nombre=' . urlencode($row['nombre']) . '&imagen=' . urlencode($row['imagen1']);
+                  echo $row[ 'idreceta' ] . '&nombre=' . urlencode($row[ 'nombre' ]) . '&imagen=' . urlencode($row[ 'imagen1' ]);
                   ?>"><i class="bi bi-trash text-danger">Eliminar</i></a>
                 </div>
               </div>

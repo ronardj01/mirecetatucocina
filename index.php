@@ -1,4 +1,10 @@
 <?php 
+if(isset($_GET['from'])) {
+  /* Logout de administracion */
+session_start();
+session_destroy();
+}
+
 require_once('connexio/connexio.php');
 // Hacemos una consulta a la base de datos
 mysqli_select_db($conexion, $database);

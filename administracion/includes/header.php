@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg bg-dark py-2" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand px-5" href="../../index.php"> <img src="../../img/logo/logo.svg" alt="Logo" width="100"
+      <a class="navbar-brand px-5" href="../../index.php?from=admin"> <img src="../../img/logo/logo.svg" alt="Logo" width="100"
           height="100" class="d-inline-block align-text-top"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
