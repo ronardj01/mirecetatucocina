@@ -10,20 +10,20 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item px-5 fs-2">
-            <a class="nav-link <?php if ($active_home)
+            <a class="nav-link <?php if ($page_title=='DASHBOARD')
               echo 'active' ?>" aria-current="page"
                 href="dashboard.php">Dashboard</a>
             </li>
             <li class="nav-item px-5 fs-2">
-              <a class="nav-link <?php if ($active_crear)
+              <a class="nav-link <?php if ($page_title=='CREAR')
               echo 'active' ?>" href="crear.php">Crear</a>
             </li>
             <li class="nav-item px-5 fs-2">
-              <a class="nav-link <?php if ($active_editar)
+              <a class="nav-link <?php if ($page_title=='EDITAR')
               echo 'active' ?>" href="editar.php">Editar</a>
             </li>
             <li class="nav-item px-5 fs-2">
-              <a class="nav-link <?php if ($active_eliminar)
+              <a class="nav-link <?php if ($page_title=='ELIMINAR')
               echo 'active' ?>" href="eliminar.php">Eliminar</a>
             </li>
             <li class="nav-item px-5 fs-2 ms-5">
