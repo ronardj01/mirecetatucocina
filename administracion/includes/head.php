@@ -1,19 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-<?php
-if ($active_home) {
-  $page_title = 'DASHBOARD';
-}
-if ($active_crear) {
-  $page_title = 'CREAR';
-}
-if ($active_editar) {
-  $page_title = 'EDITAR';
-}
-if ($active_eliminar) {
-  $page_title = 'ELIMINAR';
-}
-?>
 
 <head>
   <meta charset="UTF-8">

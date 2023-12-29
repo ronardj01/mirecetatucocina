@@ -1,5 +1,5 @@
 <?php
-$active_home = true;
+$page_title= 'DASHBOARD';
 require_once("../includes/head.php");
 ?>
 

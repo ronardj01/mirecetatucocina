@@ -1,5 +1,5 @@
 <?php
-$active_eliminar = true;
+$page_title='ELIMINAR';
 require_once("../includes/head.php");
 require_once("../../connexio/connexio.php");
 ?>

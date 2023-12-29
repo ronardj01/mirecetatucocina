@@ -1,5 +1,5 @@
 <?php
-$active_editar = true;
+$page_title='EDITAR';
 require_once("../includes/head.php");
 ?>
 

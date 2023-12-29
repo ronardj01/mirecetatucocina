@@ -1,5 +1,5 @@
 <?php
-$active_crear = true;
+$page_title='CREAR';
 require_once("../includes/head.php");
 ?>
 
