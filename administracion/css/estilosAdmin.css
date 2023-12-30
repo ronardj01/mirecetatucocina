@@ -33,10 +33,6 @@ a:hover {
   font-size: 20px;
 } 
 
-.bi:hover {
-  font-size: 24px;
-}
-
 .card a:hover, .card a {
   text-decoration: none;
 }
@@ -49,4 +45,17 @@ div.card-body:not(div.elminarReceta) {
 /* Estilos de Eliminar Receta */
  p.elminarReceta {
   color: red;
+}
+
+/* Estilos introducir ingredientes */
+#btnMas {
+  display: block;
+  padding: .2rem 1rem;
+  color: white;
+  background-color: var(--base-color);
+  border: none;
+}
+
+#btnMas:hover {
+  background-color: var(--secondary-color);
 }

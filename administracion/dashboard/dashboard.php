@@ -79,10 +79,10 @@ require_once("../includes/head.php");
                   </p>
                 </div>
                 <div class="card-footer d-flex justify-content-between py-3">
-                  <a href="editar.php?rec=<?php echo $row[ 'idreceta' ] ?>"><i class="bi bi-pencil">Editar</i></a>
+                  <a href="editar.php?rec=<?php echo $row[ 'idreceta' ] ?>"><i class="bi bi-pencil"> Editar</i></a>
                   <a href="eliminar.php?rec=<?php
                   echo $row[ 'idreceta' ] . '&nombre=' . urlencode($row[ 'nombre' ]) . '&imagen=' . urlencode($row[ 'imagen1' ]);
-                  ?>"><i class="bi bi-trash text-danger">Eliminar</i></a>
+                  ?>"><i class="bi bi-trash text-danger"> Eliminar</i></a>
                 </div>
               </div>
             </div>
