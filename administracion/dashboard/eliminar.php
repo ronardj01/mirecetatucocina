@@ -1,5 +1,6 @@
 <?php
 $page_title='ELIMINAR';
+$h1Contenido= 'Eliminar Recetas';
 require_once("../includes/head.php");
 require_once("../../connexio/connexio.php");
 ?>

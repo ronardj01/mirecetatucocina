@@ -1,5 +1,6 @@
 <?php
 $page_title='EDITAR';
+$h1Contenido= 'Editar Recetas';
 require_once("../includes/head.php");
 ?>
 

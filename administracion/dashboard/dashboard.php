@@ -1,5 +1,6 @@
 <?php
 $page_title= 'DASHBOARD';
+$h1Contenido= 'Dashboard';
 require_once("../includes/head.php");
 ?>
 
